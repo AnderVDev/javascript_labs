@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Lab2</h1>
+    <ul id="list"></ul>
+
+    <script>
+      let data = [
+        "Beijing Capital International, https://goo.gl/maps/iPe5fAqzq8C2 PEK",
+        "John F Kennedy International, https://goo.gl/maps/JWwABmA3MBS2 JFK",
+        "Lester B. Pearson International, https://goo.gl/maps/Ypu1dJLsnQu YYZ",
+        "London Heathrow, https://goo.gl/maps/TFx8SrATdYr LHR",
+        "Tokyo Haneda International, https://goo.gl/maps/5UxH2TxbRtT2 HND",
+      ];
+
+      for (let i = 0; i < data.length; ++i) {
+        let index = data[i].indexOf(",");
+        let fullName = data[i].substring(0, index).trim();
+        let url = data[i].substring(index + 2, data[i].lastIndexOf(" "));
+        let code = data[i].substring(data[i].lastIndexOf(" ") + 1);
+        let line = `<a href="${url}" target="_blank">${code} - ${fullName}</a>`;
+        const listItem = document.createElement("li");
+        listItem.innerHTML = line;
+        document.getElementById("list").appendChild(listItem);
+      }
+    </script>
+  </body>
+</html>
